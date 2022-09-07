@@ -24,8 +24,8 @@ public class Exercise_03 {
         int i = 10;
         int x = 12;
         int z = i + x;
-        System.out.println("The total of 10 + 12 is:");
-        System.out.println(z);
+        System.out.println("The total of 10 + 12 is: ".concat(Integer.toString(z)));
+        //System.out.println(z);
 
 	//System.out.println("Phil Test");
     }
