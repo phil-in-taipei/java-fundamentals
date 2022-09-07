@@ -14,11 +14,20 @@ public class Exercise_03 {
 
     public static void main(String[] args) {
 
-        System.out.println("Hello World!");
+        //System.out.println("Hello World!");
 
         // write code to print out "Check out my first program!" below
-	
-	System.out.println("Phil Test");
+        System.out.println("Hello World!");
+        System.out.println("Check out my new program!");
+
+        // debugger example:
+        int i = 10;
+        int x = 12;
+        int z = i + x;
+        System.out.println("The total of 10 + 12 is:");
+        System.out.println(z);
+
+	//System.out.println("Phil Test");
     }
 
 }
