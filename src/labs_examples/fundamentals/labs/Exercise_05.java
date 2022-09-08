@@ -109,7 +109,7 @@ public class Exercise_05 {
                 }
             }
         }
-        
+
         return stringAreSameTheory;
     }
 }
