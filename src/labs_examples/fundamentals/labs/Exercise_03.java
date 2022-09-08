@@ -24,6 +24,8 @@ public class Exercise_03 {
         int i = 10;
         int x = 12;
         int z = i + x;
+        //double x = 123.45;
+        //boolean isTrue = true;
         System.out.println("The total of 10 + 12 is: ".concat(Integer.toString(z)));
         //System.out.println(z);
 
