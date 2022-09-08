@@ -41,6 +41,7 @@ public class Exercise_05 {
         String str3 = str.concat(str2);
         System.out.println(str3);
         String concatShouldBe = "hello!hello";
+        String concatShouldNotBe = "hEllo!hello";
         System.out.println("");
         System.out.println(
                 "This string is a concatenation of the first two strings: " + str3
@@ -52,6 +53,13 @@ public class Exercise_05 {
         // for fun, I called another method, that checks if the strings are the same
         System.out.println(
                 "The concatenated string was what I expected: " + confirmStringsAreSame(str3, concatShouldBe)
+        );
+        System.out.println("");
+        // checks if same even if one letter in middle wrong
+        System.out.println(
+                "The concatenated string checker doesn't have error: " + confirmStringsAreSame(
+                        str3, concatShouldNotBe
+                )
         );
         System.out.println("");
 
@@ -99,6 +107,7 @@ public class Exercise_05 {
         boolean stringAreSameTheory = false;
 
         if (stringLengthsAreSame) {
+            int numOfCharsSame = 0;
             stringAreSameTheory = true;
             for (int i = 0; i < l2; i++) {
                 char str1_ch = str1.charAt(i);
@@ -107,6 +116,10 @@ public class Exercise_05 {
                     stringAreSameTheory = false;
                 } else {
                     stringAreSameTheory = true;
+                    numOfCharsSame++;
+                    if (numOfCharsSame != l2) {
+                        stringAreSameTheory = false;
+                    }
                 }
             }
         }
