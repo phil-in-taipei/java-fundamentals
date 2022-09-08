@@ -83,7 +83,7 @@ public class Exercise_05 {
         System.out.println("");
 
         // substring example
-        String codingStandard = "Stringently".substring(0, 9);
+        String codingStandard = "stringently".substring(0, 9);
         System.out.println("I should apply " + codingStandard + " standards");
         System.out.println("");
 
