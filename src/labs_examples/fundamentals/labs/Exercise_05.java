@@ -25,7 +25,8 @@ public class Exercise_05 {
         String str2 = "hello";
 
         // please initialize a boolean variable and test whether str is equal to str2
-        // they aren't equal, but their values are the same
+        // they aren't equal, and their values are also not the same
+        // I made another method to try it out
         System.out.println("");
         boolean stringsAreEqual = str.equals(str2);
         System.out.println("The two strings are the equal: " + stringsAreEqual);
