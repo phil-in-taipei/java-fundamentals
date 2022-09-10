@@ -17,6 +17,29 @@ public class Exercise_01 {
     public static void main(String[] args) {
 
         // write code here
+        System.out.println("");
+        System.out.println("This is some variables practice:");
+        System.out.println("-----------------------------------------------");
+        System.out.println("This is an integer:");
+        int intVar = 10;
+        System.out.println(intVar);
+        System.out.print("");
+        System.out.println("-----------------------------------------------");
+        System.out.println("This is a double:");
+        double doubleVar = 11119999.032032023231100d;
+        System.out.println(doubleVar);
+        System.out.print("");
+        System.out.println("-----------------------------------------------");
+        System.out.println("This is a float:");
+        float floatVar = 3339899.0344921023231100f;
+        System.out.println(floatVar);
+        System.out.print("");
+        System.out.println("-----------------------------------------------");
+        System.out.println("This is a char:");
+        char charVar = '囧';
+        System.out.println(charVar);
+        System.out.print("");
+        System.out.println("-----------------------------------------------");
 
     }
 }

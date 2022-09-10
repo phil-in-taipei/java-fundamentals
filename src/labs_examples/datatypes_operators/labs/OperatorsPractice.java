@@ -4,6 +4,17 @@ public class OperatorsPractice {
     public static void main(String[] args) {
         // please demonstrate the use of all 5 arithmetic operators below (+, -, *, /, %)
 
+        System.out.println("");
+
+        System.out.println("Testing the questions:");
+        System.out.println("This shouldn't be true:");
+        System.out.println(17 % 3 == 1);
+        System.out.println("Let's see what happens");
+        double aDouble = 20.45;
+        int bInt = 5;
+        int cIntRes = (int) aDouble / bInt;
+        System.out.println(cIntRes);
+
 
         // please dmonstrate the use of off 5 relational operators below - we'll cover "if-statements" shortly so I'll give you a hint here
         System.out.println("");

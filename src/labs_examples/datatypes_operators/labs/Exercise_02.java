@@ -24,6 +24,35 @@ public class Exercise_02 {
     public static void main(String[] args) {
 
         // write code here
+        System.out.println("");
+        System.out.println("-----------------------------------------------");
+        System.out.println("Converting int to double:");
+        int iVar = 10;
+        System.out.println(iVar);
+        double dVar = iVar;
+        System.out.println(dVar);
+        System.out.println(
+                "Note: it was widened, and information was gained".toUpperCase()
+        );
+        System.out.println("-----------------------------------------------");
+        System.out.println("Casting double to int:");
+        System.out.println(
+                "Note: it rounds to the floor".toUpperCase()
+        );
+
+        double dVar2 = 10.5;
+        System.out.println(dVar2);
+        int iVar2 = (int) dVar2;
+        System.out.println(iVar2);
+        System.out.println(
+                "Note: it was narrowed, and information was lost".toUpperCase()
+        );
+        System.out.println("");
+        System.out.println("-----------------------------------------------");
+        System.out.println(
+                "Note: narrowing involves a loss of information".toUpperCase()
+        );
+        System.out.println("-----------------------------------------------");
 
     }
 }
