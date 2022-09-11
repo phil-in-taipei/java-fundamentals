@@ -22,5 +22,36 @@ package labs_examples.conditions_loops.labs;
  */
 
 public class Exercise_11 {
+    public static void main(String[] args) {
+        String FORMAT_BLACK_TEXT = "\u001B[30m";
+        String FORMAT_WHITE_BACKGROUND = "\u001B[47m";
+        String FORMAT_RESET = "\u001B[0m";
+
+        System.out.println("----------------------------------------");
+        System.out.println(FORMAT_BLACK_TEXT + FORMAT_WHITE_BACKGROUND
+                + "These are the multiplication tables     "
+                + FORMAT_RESET
+        );
+        System.out.println("----------------------------------------");
+        for (int i = 1; i < 11; i++) {
+            for (int j = 1; j < 11; j++) {
+                String calStr = Integer.toString(i * j);
+                int numDigits = calStr.length();
+                switch(numDigits) {
+                    case 1:
+                        System.out.print(" " + calStr + "| ");
+                        break;
+                    case 2:
+                        System.out.print(calStr + "| ");
+                        break;
+                    default:
+                        System.out.print(calStr);
+                }
+
+            }
+            System.out.println("");
+            System.out.println("----------------------------------------");
+        }
+    }
 
 }

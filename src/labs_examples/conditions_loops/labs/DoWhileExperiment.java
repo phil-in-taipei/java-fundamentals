@@ -50,5 +50,25 @@ public class DoWhileExperiment {
             count2++;
         }while(count2<10);
         System.out.println("Val2 is : " + val2);
+
+        System.out.println("");
+        System.out.println("----------------------------------------------------");
+        System.out.println("Continue keyword with a for loop");
+        for(int i = 0; i<=20; i++) {
+            if((i%5) != 0) { // odd number
+                continue; // iterate
+            }
+            System.out.println(i);
+        }
+
+        // please demonstrate the use of the "break" keyword below in a do-while loop
+        System.out.println("--------------------------------------------------");
+        System.out.println("Break keyword in a do/while loop");
+        int doWhileIndex = 0;
+        do{
+            System.out.println("doWhileIndex is: " + doWhileIndex);
+            doWhileIndex++;
+        } while(doWhileIndex < 16);
     }
+
 }

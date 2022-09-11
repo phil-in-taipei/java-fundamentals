@@ -1,5 +1,7 @@
 package labs_examples.conditions_loops.labs;
 
+import java.util.Scanner;
+
 /**
  * Conditions and Loops Exercise 5: Calculator
  *
@@ -16,4 +18,42 @@ package labs_examples.conditions_loops.labs;
  */
 
 public class Exercise_05 {
+    public static void main(String[] args) {
+        // create scanner
+        Scanner scanner = new Scanner(System.in);
+        // prompt user
+        System.out.println("--------------------------------------------------------------------------------");
+        System.out.print("Enter a number between 1 and 500: ");
+        // assign input to variable as int
+        int lowNum = scanner.nextInt();
+        System.out.println("--------------------------------------------------------------------------------");
+        System.out.println("You entered: " + lowNum);
+        if (1 <= lowNum && lowNum <= 500) {
+            System.out.println("That is a valid number!");
+            System.out.println("--------------------------------------------------------------------------------");
+            System.out.print("Enter another number between " + lowNum + " and 500: ");
+            // assign input to variable as int
+            int highNum = scanner.nextInt();
+            System.out.println("--------------------------------------------------------------------------------");
+            System.out.println("You entered: " + highNum);
+            if (lowNum < highNum && highNum < 501) {
+                System.out.println("That is a valid number!");
+                System.out.println("--------------------------------------------------------------------------------");
+                System.out.println("Now for some calculations ...");
+                int sum = 0;
+                float difference = (highNum  + 1) - lowNum;
+                for (int i = lowNum; i <= highNum; i++) {
+                    //System.out.println(i);
+                    sum += i;
+                }
+                System.out.println("The sum of the two numbers is: " + sum);
+                System.out.println("The average is the two numbers is: " + sum / difference);
+            } else {
+                System.out.println("That is an invalid number!");
+            }
+        } else {
+            System.out.println("That is an invalid number!");
+        }
+
+    }
 }
