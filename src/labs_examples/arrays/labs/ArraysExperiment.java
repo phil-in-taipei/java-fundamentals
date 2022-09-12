@@ -24,7 +24,7 @@ public class ArraysExperiment {
         }
 
         System.out.println("---------------------------------------------------");
-        System.out.println("Using another loop to print each item in the array:");
+        System.out.println("Using for each loop to print each item in the array:");
         for (String i : fiveStrings) {
             System.out.println("Item number " + i + ": " + i);
         }
@@ -32,8 +32,31 @@ public class ArraysExperiment {
         System.out.println("---------------------------------------------------");
         System.out.println("OK, done!");
 
-        //String[] strings = new String[6];
+        System.out.println("---------------------------------------------------");
+        System.out.println("OK, experiments:!");
+        System.out.println("This is what happens when you try to loop \n " +
+                "through an array of ints with no values:");
+        // String array of size five below
+        int[] emptyArray = new int[5];
+
+        for (int i=0; i < emptyArray.length; i++) {
+            System.out.println(emptyArray[i]);
+        }
+        System.out.println("---------------------------------------------------");
+        System.out.println("The items are all zeros");
+        System.out.println("---------------------------------------------------");
+
+        System.out.println("This is what happens when you try to loop \n " +
+                "through an array of strings with no values:");
+        String[] strings = new String[6];
         //System.out.println(strings.length);
+        for (int i=0; i < strings.length; i++) {
+            System.out.println(strings[i]);
+        }
+
+        System.out.println("---------------------------------------------------");
+        System.out.println("The items are all null");
+        System.out.println("---------------------------------------------------");
 
         //char[] letters = {'k', 'd', 'm', 'i', 'e', 'f', 'g', 'h'};
         //System.out.println(letters[letters.length - 1]);
