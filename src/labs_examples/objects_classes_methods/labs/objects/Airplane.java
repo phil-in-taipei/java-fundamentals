@@ -15,7 +15,7 @@ public class Airplane {
     double currentFuelLevel;
 
     public Airplane(LandingTires landingTires, Altimeter altimeter,
-                     Airline airline, AirPlaneEngine airPlaneEngine,
+                    Airline airline, AirPlaneEngine airPlaneEngine,
                     double fuelCapacity, double currentFuelLevel){ //AirPlaneEngine airPlaneEngine,
 
         this.landingTires = landingTires;
@@ -36,12 +36,12 @@ public class Airplane {
     @Override
     public String toString() {
         return "Airplane{" +
-                "landingTires=" + landingTires.toString() +
-                ",\n altimeter=" + altimeter.toString() +
-                ",\n airline='" + airline.toString() + '\'' +
-                ",\n airPlaneEngine='" + airPlaneEngine.toString() + '\'' +
-                ",\n fuelCapacity='" + fuelCapacity + '\'' +
-                ",\n currentFuelLevel='" + currentFuelLevel + '\'' +
+                "landingTires= " + landingTires.toString() +
+                ",\n altimeter= " + altimeter.toString() +
+                ",\n airline= " + airline.toString() + '\'' +
+                ",\n airPlaneEngine= " + airPlaneEngine.toString() + '\'' +
+                ",\n fuelCapacity= " + fuelCapacity + '\'' +
+                ",\n currentFuelLevel= " + currentFuelLevel + '\'' +
                 '}';
     }
 }
