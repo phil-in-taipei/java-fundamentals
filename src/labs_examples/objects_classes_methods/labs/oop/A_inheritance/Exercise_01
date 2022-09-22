@@ -1,6 +1,8 @@
 
-1) Create at least 5 classes that demonstrate an labs_examples.inheritance hierachy. The depth of the hiearchy must be at least 3. Meaning:
-A extends B, B extends C. Classes A, B, and C define an labs_examples.inheritance hierachy with a depth of 3. Create a real-world
+1) Create at least 5 classes that demonstrate an labs_examples.inheritance hierachy.
+The depth of the hiearchy must be at least 3. Meaning:
+A extends B, B extends C.
+Classes A, B, and C define an labs_examples.inheritance hierachy with a depth of 3. Create a real-world
 labs_examples.inheritance hierarchy. For instance you could create an labs_examples.inheritance hiearchy using animals, or food, or the solar system,
 or stores, restaurants, adventures, and really anything else you can imagine. Have some fun with it. Try to challenge
 yourself.

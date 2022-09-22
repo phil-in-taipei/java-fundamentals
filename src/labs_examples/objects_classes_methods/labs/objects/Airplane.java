@@ -16,7 +16,7 @@ public class Airplane {
 
     public Airplane(LandingTires landingTires, Altimeter altimeter,
                     Airline airline, AirPlaneEngine airPlaneEngine,
-                    double fuelCapacity, double currentFuelLevel){ //AirPlaneEngine airPlaneEngine,
+                    double fuelCapacity, double currentFuelLevel){
 
         this.landingTires = landingTires;
 
