@@ -4,6 +4,9 @@ package labs_examples.objects_classes_methods.labs.oop.A_inheritance;
  * Why does the output print in the order it does?
  *
  * You answer:
+ * The constructors create the instance of the parent class before
+ * create the instance of the child class, so in the case the nested
+ * hierarchy is in the order of A_1, B_1, C_1
  *
  */
 

@@ -1,7 +1,7 @@
 
 Without running the code below, please tell me what will print. Why?
 
-
+It will print the parent string in the constructor because the Parent constructor type
 
 
 public class InheritanceTest
