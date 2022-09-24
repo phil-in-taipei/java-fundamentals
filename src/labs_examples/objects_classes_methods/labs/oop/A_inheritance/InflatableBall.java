@@ -26,6 +26,7 @@ public class InflatableBall extends Ball {
         isInflated = false;
     }
 
+    @Override
     public void doSomething() {
         System.out.println("Doing something in inflatable ball");
     }
