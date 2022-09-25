@@ -1,36 +1,29 @@
 package labs_examples.objects_classes_methods.labs.oop.C_blackjack;
 
 public class Card {
-    //char[] suit;//  = new char[]{'♠', '♦', '♥', '♣'};
-    private char suit;
-    private int scoreValue;
 
-    private String value;
+    char suit;
+    int cardValue;
 
-    public Card(char suit, String value) {
-        this.suit = suit;
-        this.value = value;
+    public Card() {
     }
 
-    public String customToString() {
+    public String customToString(){
+        String value = String.valueOf(cardValue);
         return suit + value + suit;
     }
 
-    public int getScoreValue() {
-
-        // try to return the face value - this will work for cards 2-10
-        try {
-            return Integer.valueOf(value);
-        } catch (Exception e){
-            // if the try statement fails
-            // check to see if the cards is an ACE
-            if (value.equalsIgnoreCase("ACE")){
-                // if so, return 11
-                return 11;
-            } else {
-                // otherwise it must be a Jack, Queen or King, return 10
-                return 10;
-            }
+    public int getScoreValue(){
+        if (cardValue == 1) {
+            return 1;
+        } else if (cardValue == 11) {
+            return 10;
+        } else if (cardValue == 12) {
+            return 10;
+        } else if (cardValue == 13) {
+            return 10;
+        } else {
+            return cardValue;
         }
     }
 
@@ -38,9 +31,45 @@ public class Card {
     public String toString() {
         return "Card{" +
                 "suit=" + suit +
-                ", value='" + value + '\'' +
-                ", scoreValue=" + scoreValue +
+                ", cardValue=" + cardValue +
                 '}';
+    }
+
+    public Card(char suit, int cardValue) {
+        this.suit = suit;
+        this.cardValue = cardValue;
+    }
+
+    public char getSuit() {
+        return suit;
+    }
+
+    public void setSuit(char suit) {
+        this.suit = suit;
+    }
+
+    public int getCardValue() {
+        return cardValue;
+    }
+
+    public void setCardValue(int cardValue) {
+        this.cardValue = cardValue;
+    }
+
+    public String print() {
+        String faceValue;
+        if (cardValue == 1) {
+            faceValue = "ACE";
+        } else if (cardValue == 11) {
+            faceValue = "JACK";
+        } else if (cardValue == 12) {
+            faceValue = "QUEEN";
+        } else if (cardValue == 13) {
+            faceValue = "KING";
+        } else {
+            faceValue = String.valueOf(cardValue);
+        }
+        return faceValue + suit;
     }
 }
 
