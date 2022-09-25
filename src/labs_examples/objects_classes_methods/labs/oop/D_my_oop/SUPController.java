@@ -4,6 +4,7 @@ public class SUPController {
 
 
     public static void main(String[] args) {
+
         String BLACK_TEXT = "\u001B[30m";
         String WHITE_BACKGROUND = "\u001B[47m";
         String STANDARD_FORMAT = "\u001B[0m";
