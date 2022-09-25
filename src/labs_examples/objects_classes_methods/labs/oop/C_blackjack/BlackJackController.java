@@ -5,6 +5,10 @@ import java.util.Scanner;
 public class BlackJackController {
     public static void main(String[] args) {
 
+        String BLACK_TEXT = "\u001B[30m";
+        String WHITE_BACKGROUND = "\u001B[47m";
+        String STANDARD_FORMAT = "\u001B[0m";
+
         Deck deck = new Deck();
         Player player = new Player();
         Player computerAI = new Player();
@@ -12,9 +16,12 @@ public class BlackJackController {
         boolean continuePlaying = true;
 
         System.out.println(
-                "Welcome to Black Jack!!!");
+                BLACK_TEXT + WHITE_BACKGROUND +
+                " -- Welcome to Black Jack -- "
+                + STANDARD_FORMAT
+        );
 
-        System.out.println("\nEnter your name: ");
+        System.out.println("Enter your name: ");
 
         BlackJackController controller = new BlackJackController();
         String name = controller.getPlayerName();
@@ -33,15 +40,20 @@ public class BlackJackController {
             deck.dealCard(computerAI);
             deck.dealCard(player);
             deck.dealCard(computerAI);
+            System.out.println(
+                    "----------------------------------------------------------"
+                    + "\nThis is your hand: "
 
-            System.out.println("This is your: ");
-            player.getHand().print();
-            System.out.println("\nYour score is: " + player.getHand().handScore());
+            );
+
+            //System.out.println("This is your hand: ");
+            player.getHand().printCardsInHand();
+            System.out.println("\nYour score is: " + player.getHand().getHandScore());
 
             player.dealAdditionalCards(deck, true);
             computerAI.dealAdditionalCards(deck, false);
 
-            System.out.println("Your score is : " + player.getHand().handScore());
+            System.out.println("Your score is : " + player.getHand().getHandScore());
             player.countWins(player, computerAI, deck);
             System.out.println("Do you want to play again?");
             Scanner scanner2 = new Scanner(System.in);
@@ -49,6 +61,11 @@ public class BlackJackController {
             if(letsPlayAgain.equalsIgnoreCase("y")){
                 continuePlaying = true;
             } else {
+                System.out.println(
+                        BLACK_TEXT + WHITE_BACKGROUND +
+                                " -- Exiting Black Jack -- "
+                                + STANDARD_FORMAT
+                );
                 continuePlaying = false;
             }
         }
@@ -57,21 +74,36 @@ public class BlackJackController {
     public static boolean determineWinner(Player player, Player computerAI) {
         boolean playerWins = false;
 
-        if (player.getHand().handScore() > 21) {
-            System.out.println("You went over! Game over");
-        } else if (player.getHand().handScore() == 21) {
-            System.out.println("BlackJack!");
-            System.out.println("AI score: " + computerAI.getHand().handScore());
+        if (player.getHand().getHandScore() > 21) {
+            System.out.println(
+                    "----------------------------------------------------------"
+                    + "\nYou went over! Game over");
+        } else if (player.getHand().getHandScore() == 21) {
+            System.out.println(
+                    "----------------------------------------------------------"
+                    + "\nBlackJack!"
+            );
+            System.out.println(
+                    "----------------------------------------------------------"
+                    + "\nAI score: " + computerAI.getHand().getHandScore());
             playerWins = true;
-        } else if (player.getHand().handScore() == computerAI.getHand().handScore()) {
-            System.out.println("Tie. You lose :(");
-        } else  if (computerAI.getHand().handScore() > 21) {
-            System.out.println("You win, AI went over :)");
+        } else if (player.getHand().getHandScore() == computerAI.getHand().getHandScore()) {
+            System.out.println(
+                    "----------------------------------------------------------"
+                    + "Tie. You lose :(");
+        } else  if (computerAI.getHand().getHandScore() > 21) {
+            System.out.println(
+                    "----------------------------------------------------------"
+                    + "\nYou win, AI went over :)");
             playerWins = true;
-        } else if (computerAI.getHand().handScore() > player.getHand().handScore()){
-            System.out.println("You lose :(");
+        } else if (computerAI.getHand().getHandScore() > player.getHand().getHandScore()){
+            System.out.println(
+                    "----------------------------------------------------------"
+                    + "You lose :(");
         } else {
-            System.out.println( "You win :)");
+            System.out.println(
+                    "----------------------------------------------------------"
+                    + "\nYou win :)");
             playerWins  = true;
         }
         player.adjustPot(playerWins);
@@ -82,7 +114,8 @@ public class BlackJackController {
     public String getPlayerName() {
         Scanner scanner = new Scanner(System.in);
         String playerName = scanner.nextLine();
-        System.out.println("\nYou entered this name: " + playerName + ".");
+        System.out.println("----------------------------------------------------------");
+        System.out.println("You entered this name: " + playerName + ".");
         return playerName;
 
     }

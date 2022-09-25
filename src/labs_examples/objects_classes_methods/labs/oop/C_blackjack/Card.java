@@ -56,7 +56,7 @@ public class Card {
         this.cardValue = cardValue;
     }
 
-    public String print() {
+    public String printCardInfo() {
         String faceValue;
         if (cardValue == 1) {
             faceValue = "ACE";
@@ -69,7 +69,7 @@ public class Card {
         } else {
             faceValue = String.valueOf(cardValue);
         }
-        return faceValue + suit;
+        return faceValue + "(" + suit + ")";
     }
 }
 

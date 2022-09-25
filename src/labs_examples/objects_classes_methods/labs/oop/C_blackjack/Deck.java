@@ -25,9 +25,9 @@ public class Deck {
 
         for (int i = 0; i < suit.length; i++) {
 
-            for (int a = 0; a < cardValue.length; a++) {
+            for (int j = 0; j < cardValue.length; j++) {
                 char theSuit = suit[i];
-                int theCardValue = cardValue[a];
+                int theCardValue = cardValue[j];
                 cards[counter] = new Card(theSuit, theCardValue);
                 counter++;
 

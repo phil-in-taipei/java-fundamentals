@@ -29,40 +29,48 @@ public class Player {
 
         if (human) {
             do {
-                System.out.println("Do you want another card?");
+
+                System.out.println(
+                        "----------------------------------------------------------"
+                        + "\nDo you want another card?"
+                );
 
                 Scanner scanner = new Scanner(System.in);
                 String anotherCard = scanner.next();
                 if (anotherCard.equalsIgnoreCase("y")) {
-                    System.out.println("Yes");
+                    System.out.println(
+                            "----------------------------------------------------------"
+                            + "\nOK, here's another card"
+                    );
                     deck.dealCard(this);
-                    getHand().print();
-                    System.out.println("You now have: " + getHand().handScore());
+                    getHand().printCardsInHand();
+                    System.out.println("Your score: " + getHand().getHandScore());
                 } else if (anotherCard.equalsIgnoreCase("n")) {
-                    System.out.println("You decided to stay");
+                    System.out.println(
+                            "----------------------------------------------------------"
+                            + "\nOK, no more cards for you");
                     break;
                 }
-            } while (getHand().handScore() <= 20);
+            } while (getHand().getHandScore() <= 20);
         } else {
-            if (getHand().handScore() >= 17) {
+            if (getHand().getHandScore() >= 17) {
                 System.out.println("These are the AI's cards: ");
-                getHand().print();
-                System.out.println("\nThe AI has: " + getHand().handScore());
+                getHand().printCardsInHand();
+                System.out.println("\nThe AI has: " + getHand().getHandScore());
             }
-            while (getHand().handScore() <= 16) {
+            while (getHand().getHandScore() <= 16) {
                 System.out.println("The AI is taking another card");
                 deck.dealCard(this);
                 System.out.println("These are the AI's cards: ");
-                getHand().print();
-                System.out.println("\nThe AI has: " + getHand().handScore());
+                getHand().printCardsInHand();
+                System.out.println("\nThe AI has: " + getHand().getHandScore());
             }
         }
     }
 
     public void placeBet() {
         try{Scanner scanner = new Scanner(System.in);
-            System.out.println("Place a bet ....");
-            System.out.println("\nYou have $" + potValue + " to bet");
+            System.out.println("Place your bet: You have $" + potValue);
             int playerBet = scanner.nextInt();
 
 
@@ -85,8 +93,8 @@ public class Player {
 
     public boolean computerAI() {
 
-        hand.handScore();
-        if (hand.handScore() <= 16) {
+        hand.getHandScore();
+        if (hand.getHandScore() <= 16) {
             return true;
         } else {
             return false;
@@ -151,11 +159,18 @@ public class Player {
 
         if (blackJackController.determineWinner(player, computerAI)) {
             playerWins += 1;
-            System.out.println("Player: " + playerWins + " : AI: " + computerAIWins);
+            System.out.println(
+                    "----------------------------------------------------------"
+                    + "\nPlayer: " + playerWins + " : AI: " + computerAIWins);
         } else {
             computerAIWins += 1;
-            System.out.println("Number of games played: " + deck.countNewGame);
-            System.out.println("Player - " + playerWins + " : Computer - " + computerAIWins);
+            System.out.println(
+                    "----------------------------------------------------------"
+                    + "\nNumber of games played: " + deck.countNewGame);
+            System.out.println(
+                    "Player - " + playerWins + " : Computer - " + computerAIWins
+                    + "\n----------------------------------------------------------"
+            );
         }
     }
 }

@@ -8,7 +8,7 @@ public class Hand {
     ArrayList<Card> cards = new ArrayList<>();
     int handValue;
 
-    public int handScore() {
+    public int getHandScore() {
         int currentScore = 0;
         for (Card c : cards) {
             currentScore += c.getScoreValue();
@@ -18,7 +18,7 @@ public class Hand {
 
     public boolean bustedCheck() {
 
-        if (handScore() > 21) {
+        if (getHandScore() > 21) {
             return true;
         } else {
             return false;
@@ -61,9 +61,9 @@ public class Hand {
         return;
     }
 
-    public void print() {
+    public void printCardsInHand() {
         for (Card c : cards) {
-            System.out.print(c.print());
+            System.out.print(c.printCardInfo() + " ");
         }
     }
 }
