@@ -111,7 +111,7 @@ public class BlackJackController {
     }
 
 
-    public String getPlayerName() {
+    public static String getPlayerName() {
         Scanner scanner = new Scanner(System.in);
         String playerName = scanner.nextLine();
         System.out.println("----------------------------------------------------------");
