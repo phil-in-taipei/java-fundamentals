@@ -6,17 +6,18 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class GeneralSportsBoardController {
+
+    static boolean continueLoop = true;
     public static void main(String[] args) {
+
 
         String BLACK_TEXT = "\u001B[30m";
         String WHITE_BACKGROUND = "\u001B[47m";
         String STANDARD_FORMAT = "\u001B[0m";
 
-        boolean continueLoop = true;
+        //boolean continueLoop = true;
 
-        System.out.println(
-                "-----------------------------------------------------------------------------------"
-        );
+        printDividingLine();
 
         System.out.println(
                 BLACK_TEXT + WHITE_BACKGROUND +
@@ -24,7 +25,7 @@ public class GeneralSportsBoardController {
                         + STANDARD_FORMAT
         );
 
-        System.out.println("-----------------------------------------------------------------------------------");
+        printDividingLine();
 
         while(continueLoop) {
             System.out.println(
@@ -40,6 +41,7 @@ public class GeneralSportsBoardController {
                 continueLoop = true;
                 GeneralSportsBoardController controller = new GeneralSportsBoardController();
 
+                printDividingLine();
                 System.out.println(
                         "Please input the board option:"
                                 + "\n1) Stand Up Paddle Board (SUP)"
@@ -51,24 +53,60 @@ public class GeneralSportsBoardController {
 
                 if (Objects.equals(loopOptionInput, "1")) {
                     //SocialEvent userInputSocialEvent = new SocialEvent();
+                    printDividingLine();
                     System.out.println(
-                            "-----------------------------------------------------------------------------------"
-                            + "\nOK, let's announce the release of an SUP Paddle Board"
-                            + "\n-----------------------------------------------------------------------------------"
+                            "OK, let's announce the release of an SUP Paddle Board"
+
                     );
+                    printDividingLine();
 
                     System.out.println(
                             "Please input the SUP product name:"
                     );
+                    String productNameInput = controller.getProductName();
+                    System.out.println(productNameInput);
+                    printDividingLine();
+                    StandUpPaddleBoard supProduct = new StandUpPaddleBoard(
+                            80, 8, 2,
+                            "pavement", productNameInput,
+                            2022, "Ocean",
+                            true, 5
+                    );
+                    printDividingLine();
+                    System.out.println(
+                            BLACK_TEXT + WHITE_BACKGROUND +
+                                    "You have created the following SUP product object:"
+                                    + STANDARD_FORMAT
+                                    + "\n"
+                                    + supProduct.toString()
+                    );
+                    printDividingLine();
                 } else {
+                    printDividingLine();
+                    System.out.println(
+                            "OK, let's announce the release of an skateboard"
+
+                    );
+                    printDividingLine();
 
                     System.out.println(
-                            "-----------------------------------------------------------------------------------"
-                            + "\nOK, let's announce the release of a new Skateboard Product"
-                            + "\n-----------------------------------------------------------------------------------"
+                            "Please input the skateboard product name:"
                     );
-
-                    //System.out.println("-----------------------------------------------------------------------------------");
+                    String productNameInput = controller.getProductName();
+                    Skateboard skateboardObject = new Skateboard(
+                            80, 8, 2,
+                            "pavement", "Toy Machine",
+                            productNameInput, 2021,
+                            "vert ramp", 52
+                    );
+                    System.out.println(
+                            BLACK_TEXT + WHITE_BACKGROUND +
+                                    "You have created the following skatboard product object:"
+                                    + STANDARD_FORMAT
+                                    + "\n"
+                                    + skateboardObject.toString()
+                    );
+                    printDividingLine();
                 }
 
             } else {
@@ -88,15 +126,21 @@ public class GeneralSportsBoardController {
     public String getProductName() {
         Scanner scanner = new Scanner(System.in);
         String productName = scanner.nextLine();
-        System.out.println("-----------------------------------------------------------------------------------");
+        printDividingLine();
         return productName;
     }
 
     public String getLoopOption() {
         Scanner eventOptionScanner = new Scanner(System.in);
         String loopOption = eventOptionScanner.nextLine();
-        System.out.println("-----------------------------------------------------------------------------------");
+        printDividingLine();
         System.out.println("You entered this board type option: " + loopOption);
         return loopOption;
+    }
+
+    public static void printDividingLine() {
+        System.out.println(
+                "-----------------------------------------------------------------------------------"
+        );
     }
 }
