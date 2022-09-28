@@ -70,7 +70,7 @@ public class GeneralSportsBoardController {
                     System.out.println(productNameInput);
 
                     // TODO: 9/28/22 /supReleaseFunction(); // pass in productNameInput as arg
-                    
+
                     printDividingLine();
                     StandUpPaddleBoard supProduct = new StandUpPaddleBoard(
                             80, 8, 2,
@@ -91,6 +91,7 @@ public class GeneralSportsBoardController {
                     System.out.println("The are now: " + supObjects.size() + " sups" );
                     if (supObjects.size() > 0) {
                         printDividingLine();
+                        // TODO: 9/28/22 // wantToPlaceShippingOrder(); // reuseable function call here
                         System.out.println(
                                 "Would you like to place a shipping order?"
                                         + "\n'Y') Yes"
@@ -98,7 +99,7 @@ public class GeneralSportsBoardController {
                         );
                         String placeAnOrder = eventLoopScanner.next();
                         printDividingLine();
-                        if (placeAnOrder.equalsIgnoreCase("y")) {
+                        while (placeAnOrder.equalsIgnoreCase("y")) {
                             System.out.println("These are the SUP boards currently available for shipping:");
                             int index = 1;
                             for (StandUpPaddleBoard s : supObjects) {
@@ -122,10 +123,15 @@ public class GeneralSportsBoardController {
                                     + supObjects.get(orderOptionInput).hasBeenReceived(false)
                             );
                             printDividingLine();
-                        } else {
-                            break;
+                            // TODO: 9/28/22 // wantToPlaceShippingOrder(); // reuseable function call here
+                            System.out.println(
+                                    "Would you like to place a shipping order?"
+                                            + "\n'Y') Yes"
+                                            + "\n'N') No thanks, I'm done" //getOrderOption
+                            );
+                            placeAnOrder = eventLoopScanner.next();
+                            printDividingLine();
                         }
-
                     }
                 } else {
                     printDividingLine();
@@ -158,15 +164,17 @@ public class GeneralSportsBoardController {
                     printDividingLine();
                     if (skateBoardObjects.size() > 0) {
                         printDividingLine();
+                        // TODO: 9/28/22 // wantToPlaceShippingOrder(); // reuseable function call here
                         System.out.println(
                                 "Would you like to place a shipping order?"
                                         + "\n'Y') Yes"
                                         + "\n'N') No thanks, I'm done" //getOrderOption
                         );
+
                         String placeAnOrder = eventLoopScanner.next();
 
-                        printDividingLine();
-                        if (placeAnOrder.equalsIgnoreCase("y")) {
+                        while (placeAnOrder.equalsIgnoreCase("y")) {
+
                             System.out.println("These are the skateboards currently available for shipping:");
                             int index = 1;
                             for (Skateboard s : skateBoardObjects) {
@@ -190,15 +198,16 @@ public class GeneralSportsBoardController {
                                     + skateBoardObjects.get(orderOptionInput).hasBeenReceived(false)
                             );
                             printDividingLine();
-                        } else {
-                            System.out.println(
-                                    BLACK_TEXT + WHITE_BACKGROUND +
-                                            " -- Exiting Sport Board System -- "
-                                            + STANDARD_FORMAT
-                            );
-                            break;
-                        }
 
+                            // TODO: 9/28/22 // wantToPlaceShippingOrder(); // reuseable function call here
+                            System.out.println(
+                                    "Would you like to place a shipping order?"
+                                            + "\n'Y') Yes"
+                                            + "\n'N') No thanks, I'm done" //getOrderOption
+                            );
+                            placeAnOrder = eventLoopScanner.next();
+                            printDividingLine();
+                        }
                     }
                 }
 
@@ -209,7 +218,7 @@ public class GeneralSportsBoardController {
                                 " -- Exiting Sport Board System -- "
                                 + STANDARD_FORMAT
                 );
-                break;
+                //break;
             }
         }
 
