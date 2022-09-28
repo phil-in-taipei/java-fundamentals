@@ -56,7 +56,6 @@ public class GeneralSportsBoardController {
 
 
                 if (Objects.equals(loopOptionInput, "1")) {
-                    //SocialEvent userInputSocialEvent = new SocialEvent();
                     printDividingLine();
                     System.out.println(
                             "OK, let's announce the release of an SUP Paddle Board"
@@ -69,6 +68,9 @@ public class GeneralSportsBoardController {
                     );
                     String productNameInput = controller.getProductName();
                     System.out.println(productNameInput);
+
+                    // TODO: 9/28/22 /supReleaseFunction(); // pass in productNameInput as arg
+                    
                     printDividingLine();
                     StandUpPaddleBoard supProduct = new StandUpPaddleBoard(
                             80, 8, 2,
@@ -110,6 +112,9 @@ public class GeneralSportsBoardController {
                                 break;
                             }
                             printDividingLine();
+
+                            // TODO: 9/28/22 // announceProductPaymentShipment(); // pass in supObjects.get(orderOptionInput); as arg
+
                             supObjects.get(orderOptionInput).paymentReceivedAnnouncement(2000);
                             supObjects.get(orderOptionInput).hasBeenShipped(true);
                             supObjects.get(orderOptionInput).setExpectedDeliveryDate(21);
@@ -175,6 +180,9 @@ public class GeneralSportsBoardController {
                                 break;
                             }
                             printDividingLine();
+
+                            // TODO: 9/28/22 // announceProductPaymentShipment(); // pass in skateBoardObjects.get(orderOptionInput); as arg
+
                             skateBoardObjects.get(orderOptionInput).paymentReceivedAnnouncement(2000);
                             skateBoardObjects.get(orderOptionInput).hasBeenShipped(true);
                             skateBoardObjects.get(orderOptionInput).setExpectedDeliveryDate(21);
