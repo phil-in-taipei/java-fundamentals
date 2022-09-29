@@ -1,6 +1,8 @@
 
 Please create two classes that demonstrate the following:
 
+OK, JUST RUN MAIN LOOP OF FIRST CLASS
+
 1) A static method calling another static method in the same class
 2) A static method calling a non-static method in the same class
 3) A static method calling a static method in another class
