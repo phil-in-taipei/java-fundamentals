@@ -19,8 +19,6 @@ public class GeneralSportsBoardController {
         String WHITE_BACKGROUND = "\u001B[47m";
         String STANDARD_FORMAT = "\u001B[0m";
 
-        //boolean continueLoop = true;
-
         printDividingLine();
 
         System.out.println(
@@ -32,11 +30,8 @@ public class GeneralSportsBoardController {
         printDividingLine();
 
         while(continueLoop) {
-            System.out.println(
-                    "Do you want to utilize the board purchasing system?"
-                            + "\n'Y') Yes"
-                            + "\n'N') No thanks, I'm done"
-            );
+            printContinueUsingSystemPrompt();
+
             Scanner eventLoopScanner = new Scanner(System.in);
             String letsScheduleSomething = eventLoopScanner.next();
 
@@ -46,11 +41,8 @@ public class GeneralSportsBoardController {
                 GeneralSportsBoardController controller = new GeneralSportsBoardController();
 
                 printDividingLine();
-                System.out.println(
-                        "Please input the board option:"
-                                + "\n1) Stand Up Paddle Board (SUP)"
-                                + "\n2) Skateboard"
-                );
+
+                printBoardOptionPrompt();
 
                 String loopOptionInput = controller.getLoopOption();
 
@@ -69,67 +61,44 @@ public class GeneralSportsBoardController {
                     String productNameInput = controller.getProductName();
                     System.out.println(productNameInput);
 
-                    // TODO: 9/28/22 /supReleaseFunction(); // pass in productNameInput as arg
+                    printDividingLine();
+
+                    StandUpPaddleBoard supProduct = createSUPObj(productNameInput);
+
+                    announceSUPObj(BLACK_TEXT, WHITE_BACKGROUND,
+                            supProduct, STANDARD_FORMAT);
 
                     printDividingLine();
-                    StandUpPaddleBoard supProduct = new StandUpPaddleBoard(
-                            80, 8, 2,
-                            "pavement", productNameInput,
-                            2022, "Ocean",
-                            true, 5
-                    );
-                    printDividingLine();
-                    System.out.println(
-                            BLACK_TEXT + WHITE_BACKGROUND +
-                                    "You have created the following SUP product object:"
-                                    + STANDARD_FORMAT
-                                    + "\n"
-                                    + supProduct.toString()
-                    );
-                    printDividingLine();
                     supObjects.add(supProduct);
+
                     System.out.println("The are now: " + supObjects.size() + " sups" );
                     if (supObjects.size() > 0) {
                         printDividingLine();
-                        // TODO: 9/28/22 // wantToPlaceShippingOrder(); // reuseable function call here
-                        System.out.println(
-                                "Would you like to place a shipping order?"
-                                        + "\n'Y') Yes"
-                                        + "\n'N') No thanks, I'm done" //getOrderOption
-                        );
+
+                        wantToPlaceShippingOrder();
                         String placeAnOrder = eventLoopScanner.next();
+
                         printDividingLine();
                         while (placeAnOrder.equalsIgnoreCase("y")) {
-                            System.out.println("These are the SUP boards currently available for shipping:");
-                            int index = 1;
-                            for (StandUpPaddleBoard s : supObjects) {
-                                System.out.println(index + ": " + s.getModelName());
-                                index++;
-                            }
+                            printAvailableSUPS(supObjects);
                             printDividingLine();
+
                             System.out.println("Which item would you like to ship?");
                             int orderOptionInput = controller.getOrderOption() - 1;
+
+                            // TODO: 9/29/22 error handling to put limit on order amount
                             if (orderOptionInput == 999) {
                                 break;
                             }
                             printDividingLine();
 
-                            // TODO: 9/28/22 // announceProductPaymentShipment(); // pass in supObjects.get(orderOptionInput); as arg
+                            announceSUPShippingInfo(supObjects.get(orderOptionInput));
 
-                            supObjects.get(orderOptionInput).paymentReceivedAnnouncement(2000);
-                            supObjects.get(orderOptionInput).hasBeenShipped(true);
-                            supObjects.get(orderOptionInput).setExpectedDeliveryDate(21);
-                            System.out.println("The product has been received: "
-                                    + supObjects.get(orderOptionInput).hasBeenReceived(false)
-                            );
                             printDividingLine();
-                            // TODO: 9/28/22 // wantToPlaceShippingOrder(); // reuseable function call here
-                            System.out.println(
-                                    "Would you like to place a shipping order?"
-                                            + "\n'Y') Yes"
-                                            + "\n'N') No thanks, I'm done" //getOrderOption
-                            );
+                            wantToPlaceShippingOrder();
+
                             placeAnOrder = eventLoopScanner.next();
+
                             printDividingLine();
                         }
                     }
@@ -145,66 +114,43 @@ public class GeneralSportsBoardController {
                             "Please input the skateboard product name:"
                     );
                     String productNameInput = controller.getProductName();
-                    Skateboard skateboardObject = new Skateboard(
-                            80, 8, 2,
-                            "pavement", "Toy Machine",
-                            productNameInput, 2021,
-                            "vert ramp", 52
-                    );
-                    System.out.println(
-                            BLACK_TEXT + WHITE_BACKGROUND +
-                                    "You have created the following skateboard product object:"
-                                    + STANDARD_FORMAT
-                                    + "\n"
-                                    + skateboardObject.toString()
-                    );
+
+                    Skateboard skateboardObject = createSkateboardObj(productNameInput);
+
+                    announceSkateboardObj(BLACK_TEXT, WHITE_BACKGROUND,
+                            skateboardObject, STANDARD_FORMAT);
+
                     printDividingLine();
+
                     skateBoardObjects.add(skateboardObject);
                     System.out.println("The are now: " + skateBoardObjects.size() + " skateboards" );
-                    printDividingLine();
+
                     if (skateBoardObjects.size() > 0) {
                         printDividingLine();
-                        // TODO: 9/28/22 // wantToPlaceShippingOrder(); // reuseable function call here
-                        System.out.println(
-                                "Would you like to place a shipping order?"
-                                        + "\n'Y') Yes"
-                                        + "\n'N') No thanks, I'm done" //getOrderOption
-                        );
+
+                        wantToPlaceShippingOrder();
 
                         String placeAnOrder = eventLoopScanner.next();
 
                         while (placeAnOrder.equalsIgnoreCase("y")) {
+                            printAvailableSkateboards(skateBoardObjects);
 
-                            System.out.println("These are the skateboards currently available for shipping:");
-                            int index = 1;
-                            for (Skateboard s : skateBoardObjects) {
-                                System.out.println(index + ": " + s.getModelName());
-                                index++;
-                            }
                             printDividingLine();
                             System.out.println("Which item would you like to ship?");
                             int orderOptionInput = controller.getOrderOption() - 1;
+
+                            // TODO: 9/29/22 raise exception instead of this if block 
                             if (orderOptionInput == 999) {
                                 break;
                             }
                             printDividingLine();
 
-                            // TODO: 9/28/22 // announceProductPaymentShipment(); // pass in skateBoardObjects.get(orderOptionInput); as arg
+                            announceSkateboardShippingInfo(skateBoardObjects.get(orderOptionInput));
 
-                            skateBoardObjects.get(orderOptionInput).paymentReceivedAnnouncement(2000);
-                            skateBoardObjects.get(orderOptionInput).hasBeenShipped(true);
-                            skateBoardObjects.get(orderOptionInput).setExpectedDeliveryDate(21);
-                            System.out.println("The product has been received: "
-                                    + skateBoardObjects.get(orderOptionInput).hasBeenReceived(false)
-                            );
                             printDividingLine();
 
-                            // TODO: 9/28/22 // wantToPlaceShippingOrder(); // reuseable function call here
-                            System.out.println(
-                                    "Would you like to place a shipping order?"
-                                            + "\n'Y') Yes"
-                                            + "\n'N') No thanks, I'm done" //getOrderOption
-                            );
+
+                            wantToPlaceShippingOrder();
                             placeAnOrder = eventLoopScanner.next();
                             printDividingLine();
                         }
@@ -213,15 +159,77 @@ public class GeneralSportsBoardController {
 
             } else {
                 continueLoop = false;
-                System.out.println(
-                        BLACK_TEXT + WHITE_BACKGROUND +
-                                " -- Exiting Sport Board System -- "
-                                + STANDARD_FORMAT
+                printExitMessage(
+                        BLACK_TEXT,WHITE_BACKGROUND, STANDARD_FORMAT
                 );
-                //break;
             }
         }
 
+    }
+
+    public static void announceSkateboardShippingInfo(Skateboard skateboardObject) {
+        skateboardObject.paymentReceivedAnnouncement(2000);
+        skateboardObject.hasBeenShipped(true);
+        skateboardObject.setExpectedDeliveryDate(21);
+        System.out.println("The product has been received: "
+                + skateboardObject.hasBeenReceived(false)
+        );
+    }
+
+    public static void announceSUPShippingInfo(StandUpPaddleBoard supObject) {
+        supObject.paymentReceivedAnnouncement(2000);
+        supObject.hasBeenShipped(true);
+        supObject.setExpectedDeliveryDate(21);
+        System.out.println("The product has been received: "
+                + supObject.hasBeenReceived(false)
+        );
+    }
+
+    public static void announceSkateboardObj(
+            String BLACK_TEXT, String WHITE_BACKGROUND,
+            Skateboard skateboardObject, String STANDARD_FORMAT
+
+    ) {
+        System.out.println(
+                BLACK_TEXT + WHITE_BACKGROUND +
+                        "You have created the following skateboard product object:"
+                        + STANDARD_FORMAT
+                        + "\n"
+                        + skateboardObject.toString()
+        );
+    }
+
+    public static void announceSUPObj(
+            String BLACK_TEXT, String WHITE_BACKGROUND,
+            StandUpPaddleBoard supProduct, String STANDARD_FORMAT
+    ) {
+        System.out.println(
+                BLACK_TEXT + WHITE_BACKGROUND +
+                        "You have created the following SUP product object:"
+                        + STANDARD_FORMAT
+                        + "\n"
+                        + supProduct.toString()
+        );
+    }
+
+    public static Skateboard createSkateboardObj(String productNameInput) {
+        Skateboard skateboardObject = new Skateboard(
+                80, 8, 2,
+                "pavement", "Toy Machine",
+                productNameInput, 2021,
+                "vert ramp", 52
+        );
+        return skateboardObject;
+    }
+
+    public static StandUpPaddleBoard createSUPObj(String productNameInput) {
+        StandUpPaddleBoard supProduct = new StandUpPaddleBoard(
+                80, 8, 2,
+                "pavement", productNameInput,
+                2022, "Ocean",
+                true, 5
+        );
+        return supProduct;
     }
 
 
@@ -256,9 +264,65 @@ public class GeneralSportsBoardController {
         return orderOptionInt;
     }
 
+    public static void printAvailableSkateboards(
+            ArrayList<Skateboard> skateBoardObjects
+    ) {
+        System.out.println("These are the skateboards currently available for shipping:");
+        printDividingLine();
+        int index = 1;
+        for (Skateboard s : skateBoardObjects) {
+            System.out.println(index + ": " + s.getModelName());
+            index++;
+        }
+    }
+
+    public static void printAvailableSUPS(ArrayList<StandUpPaddleBoard> supObjects) {
+        System.out.println("These are the SUP boards currently available for shipping:");
+        printDividingLine();
+        int index = 1;
+        for (StandUpPaddleBoard s : supObjects) {
+            System.out.println(index + ": " + s.getModelName());
+            index++;
+        }
+    }
+
+    public static void printBoardOptionPrompt() {
+        System.out.println(
+                "Please input the board option:"
+                        + "\n1) Stand Up Paddle Board (SUP)"
+                        + "\n2) Skateboard"
+        );
+    }
+
+    public static void printContinueUsingSystemPrompt() {
+        System.out.println(
+                "Do you want to utilize the board purchasing system?"
+                        + "\n'Y') Yes"
+                        + "\n'N') No thanks, I'm done"
+        );
+    }
+
     public static void printDividingLine() {
         System.out.println(
                 "-----------------------------------------------------------------------------------"
+        );
+    }
+
+    public static void printExitMessage(
+            String BLACK_TEXT, String WHITE_BACKGROUND,
+            String STANDARD_FORMAT) {
+        System.out.println(
+                BLACK_TEXT + WHITE_BACKGROUND +
+                        " -- Exiting Sport Board System -- "
+                        + STANDARD_FORMAT
+        );
+    }
+
+    public static void wantToPlaceShippingOrder() {
+        System.out.println(
+                "Would you like to place a shipping order?"
+                        + "\n'Y') Yes"
+                        + "\n'N') No thanks, I'm done"
         );
     }
 }
