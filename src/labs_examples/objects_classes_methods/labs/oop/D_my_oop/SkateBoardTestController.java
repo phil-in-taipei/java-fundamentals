@@ -1,6 +1,6 @@
 package labs_examples.objects_classes_methods.labs.oop.D_my_oop;
 
-public class SkateBoardController {
+public class SkateBoardTestController {
     public static void main(String[] args) {
 
         String BLACK_TEXT = "\u001B[30m";
