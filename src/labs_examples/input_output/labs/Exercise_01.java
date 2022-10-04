@@ -11,6 +11,7 @@ package labs_examples.input_output.labs;
 
 class Example {
     public static void main(String[] args) {
+        // char_data.txt
 
 
 
