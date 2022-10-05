@@ -92,7 +92,13 @@ public class GeneralSportsBoardController {
                             }
                             printDividingLine();
 
-                            announceSUPShippingInfo(supObjects.get(orderOptionInput));
+                            //announceSUPShippingInfo(supObjects.get(orderOptionInput));
+                            try {
+                                announceSUPShippingInfo(supObjects.get(orderOptionInput));
+                            } catch(IndexOutOfBoundsException exc) {
+                                System.out.println(exc.toString()); //
+                                // IndexOutOfBoundsException
+                            }
 
                             printDividingLine();
                             wantToPlaceShippingOrder();
@@ -145,7 +151,13 @@ public class GeneralSportsBoardController {
                             }
                             printDividingLine();
 
-                            announceSkateboardShippingInfo(skateBoardObjects.get(orderOptionInput));
+                            //announceSkateboardShippingInfo(skateBoardObjects.get(orderOptionInput));
+                            //throws ShippingInputException
+                            try {
+                                announceSkateboardShippingInfo(skateBoardObjects.get(orderOptionInput));
+                            } catch(IndexOutOfBoundsException exc) {
+                                System.out.println(exc.toString());
+                            }
 
                             printDividingLine();
 
@@ -176,7 +188,9 @@ public class GeneralSportsBoardController {
         );
     }
 
-    public static void announceSUPShippingInfo(StandUpPaddleBoard supObject) {
+    public static void announceSUPShippingInfo(
+            StandUpPaddleBoard supObject
+    ) {
         supObject.paymentReceivedAnnouncement(2000);
         supObject.hasBeenShipped(true);
         supObject.setExpectedDeliveryDate(21);
