@@ -96,8 +96,9 @@ public class GeneralSportsBoardController {
                             try {
                                 announceSUPShippingInfo(supObjects.get(orderOptionInput));
                             } catch(IndexOutOfBoundsException exc) {
-                                System.out.println(exc.toString()); //
-                                // IndexOutOfBoundsException
+                                //System.out.println(exc.toString());
+                                ShippingInputException inputException = new ShippingInputException();
+                                System.out.println(inputException.toString());
                             }
 
                             printDividingLine();
@@ -156,7 +157,9 @@ public class GeneralSportsBoardController {
                             try {
                                 announceSkateboardShippingInfo(skateBoardObjects.get(orderOptionInput));
                             } catch(IndexOutOfBoundsException exc) {
-                                System.out.println(exc.toString());
+                                //System.out.println(exc.toString());
+                                ShippingInputException inputException = new ShippingInputException();
+                                System.out.println(inputException.toString());
                             }
 
                             printDividingLine();

@@ -4,6 +4,6 @@ public class ShippingInputException extends IndexOutOfBoundsException{
 
     @Override
     public String toString() {
-        return "There is no product corresponding to that number!";
+        return "There is no product corresponding to that number! \nTry again!";
     }
 }
