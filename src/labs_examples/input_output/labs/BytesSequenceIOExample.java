@@ -1,8 +1,8 @@
-package labs_examples.input_output.experiments;
+package labs_examples.input_output.labs;
 
 import java.io.*;
 
-public class SequenceInputStreamExp {
+public class BytesSequenceIOExample {
     public static void main(String[] args) {
         String baseFilePath =
                 "/home/thinkpad/Documents/coding_nomads_code/java_learning/my_code_practice/labs/online-java-fundamentals";
@@ -10,7 +10,12 @@ public class SequenceInputStreamExp {
         String firstInputFilePath = baseFilePath + "/src/labs_examples/input_output/labs/byte_data";
         String secondInputFilePath = baseFilePath + "/src/labs_examples/input_output/labs/byte_data2";
 
-        String thirdOutputFilePath = baseFilePath + "/src/labs_examples/input_output/labs/byte_data2";
+        String thirdOutputFilePath = baseFilePath + "/src/labs_examples/input_output/labs/byte_data3";
+
+        PrintInfoClass.printExerciseIntro(
+                "This will read byte data from two files and write sequentially to a third file"
+        );
+        PrintInfoClass.printDividerLine();
 
         FileInputStream firstByteDataFile = null;
         FileInputStream secondByteDataFile = null;
@@ -30,8 +35,9 @@ public class SequenceInputStreamExp {
                     System.out.print((char) i);
                     thirdByteDataFile.write(i);
                 }
-                } catch (IOException exp) {
-                    System.out.println(exp.getMessage());
+                System.out.print("\n");
+            } catch (IOException exp) {
+                System.out.println(exp.getMessage());
             }
 
         } catch (FileNotFoundException e) {
@@ -50,5 +56,7 @@ public class SequenceInputStreamExp {
                 System.out.println("An error occurred: " + ex.getMessage());
             }
         }
+
+        PrintInfoClass.printExerciseExit("That is the end!");
     }
 }

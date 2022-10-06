@@ -10,6 +10,9 @@ public class CSVParseBoards {
         String baseFilePath = "/home/thinkpad/Documents/coding_nomads_code/java_learning/my_code_practice/labs/online-java-fundamentals";
         String csvFilePath = baseFilePath + "/src/labs_examples/input_output/labs/sporting_boards.csv";
 
+        PrintInfoClass.printExerciseIntro("This will read data from a csv file, and create 'Sporting Board Objects'");
+        PrintInfoClass.printDividerLine();
+
         try (BufferedReader bufferedReader =
                      new BufferedReader(new FileReader(csvFilePath))) {
 
@@ -29,6 +32,8 @@ public class CSVParseBoards {
         for(SportingBoard board : boards){
             System.out.println(board.toString());
         }
+
+        PrintInfoClass.printExerciseExit("Those are the objects created from csv file data!");
 
     }
 

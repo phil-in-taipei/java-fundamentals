@@ -5,6 +5,11 @@ import java.io.*;
 public class CharacterStreamIOExample {
     public static void main(String[] args){
 
+        PrintInfoClass.printExerciseIntro(
+                "This will print a string to a file line by line with line numbers"
+        );
+        PrintInfoClass.printDividerLine();
+
         try{
             FileWriter fileWriter = new FileWriter("character_io_example.txt");
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
@@ -39,6 +44,9 @@ public class CharacterStreamIOExample {
             System.out.println("There was an error!");
             e2.printStackTrace();
         }
+
+        PrintInfoClass.printExerciseExit("The end!");
+        PrintInfoClass.printDividerLine();
 
 
     }
