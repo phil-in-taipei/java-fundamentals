@@ -49,6 +49,6 @@ public class DataStreamReadWriteExample {
             e.printStackTrace();
         }
 
-        PrintInfoClass.printExerciseExit("The end!!");
+        PrintInfoClass.printExerciseExit("The end!!".toUpperCase());
     }
 }

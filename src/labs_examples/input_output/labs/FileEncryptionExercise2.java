@@ -75,7 +75,7 @@ public class FileEncryptionExercise2 {
             exc.printStackTrace();
         }
 
-        PrintInfoClass.printExerciseExit("The end!!");
+        PrintInfoClass.printExerciseExit("The end!!".toUpperCase());
     }
 
 

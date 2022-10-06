@@ -33,7 +33,9 @@ public class CSVParseBoards {
             System.out.println(board.toString());
         }
 
-        PrintInfoClass.printExerciseExit("Those are the objects created from csv file data!");
+        PrintInfoClass.printExerciseExit(
+                "Those are the objects created from csv file data!".toUpperCase()
+        );
 
     }
 

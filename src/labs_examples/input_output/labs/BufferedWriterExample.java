@@ -16,7 +16,7 @@ public class BufferedWriterExample {
         );
         PrintInfoClass.printDividerLine();
 
-        String inputStr = "This is so exciting";
+        String inputStr = "This is so exciting".toUpperCase();
 
         for (int i =0 ; i < 10; i++) {
             inputStr = inputStr + "!";
@@ -36,7 +36,7 @@ public class BufferedWriterExample {
             e.printStackTrace();
         }
 
-        PrintInfoClass.printExerciseExit("The end!");
+        PrintInfoClass.printExerciseExit("The end!".toUpperCase());
         PrintInfoClass.printDividerLine();
     }
 

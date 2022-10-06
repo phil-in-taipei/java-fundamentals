@@ -57,6 +57,6 @@ public class BytesSequenceIOExample {
             }
         }
 
-        PrintInfoClass.printExerciseExit("That is the end!");
+        PrintInfoClass.printExerciseExit("That is the end!".toUpperCase());
     }
 }
