@@ -8,7 +8,7 @@ public class Player {
     String name;
     Hand hand = new Hand();
 
-    int potValue = 1000; //(the
+    int potValue = 1000;
 
     int bet;
 
