@@ -10,13 +10,13 @@ public class SequenceInputStreamExample {
         String inputPath2 = "/home/thinkpad/Documents/coding_nomads_code/java_learning/my_code_practice/labs/online-java-fundamentals/src/labs_examples/input_output/labs/byte_data2";
         String inputPath1 = "/home/thinkpad/Documents/coding_nomads_code/java_learning/my_code_practice/labs/online-java-fundamentals/src/labs_examples/input_output/labs/byte_data";
 
-        FileInputStream file1 = null;
-        FileInputStream file2 = null;
+        FileInputStream firstByteDataFile = null;
+        FileInputStream secondByteDataFile = null;
         SequenceInputStream sequence = null;
         try {
-            file1 = new FileInputStream(inputPath1);
-            file2 = new FileInputStream(inputPath2);
-            sequence = new SequenceInputStream(file1, file2);
+            firstByteDataFile = new FileInputStream(inputPath1);
+            secondByteDataFile = new FileInputStream(inputPath2);
+            sequence = new SequenceInputStream(firstByteDataFile, secondByteDataFile);
             int i;
             try {
                 while ((i = sequence.read()) != -1) {
@@ -30,8 +30,8 @@ public class SequenceInputStreamExample {
             e.printStackTrace();
         } finally {
             try {
-                file1.close();
-                file2.close();
+                firstByteDataFile.close();
+                secondByteDataFile.close();
                 sequence.close();
             } catch (IOException ex) {
                 //ex.printStackTrace();
