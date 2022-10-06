@@ -27,10 +27,10 @@ public class Exercise_07 {
         System.out.println("You entered: " + str);  // Output user input
         String vowelsInStr = "";
 
-        for (int i = 0; i < str.length(); i++) {
-            for (int j = 0; j < vowels.length(); j++) {
-                if(str.charAt(i) == vowels.charAt(j)) {
-                    vowelsInStr += str.charAt(i);
+        for (int outerIndex = 0; outerIndex < str.length(); outerIndex++) {
+            for (int innerIndex = 0; innerIndex < vowels.length(); innerIndex++) {
+                if(str.charAt(outerIndex) == vowels.charAt(innerIndex)) {
+                    vowelsInStr += str.charAt(outerIndex);
                 }
             }
         }

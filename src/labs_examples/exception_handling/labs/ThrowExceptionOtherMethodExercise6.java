@@ -7,7 +7,7 @@ public class ThrowExceptionOtherMethodExercise6 {
     public static void main(String[] args) {
         System.out.println("--------------------------------------------------");
 
-        System.out.println("Throwing an exception example:");
+        System.out.println("Throwing an exception example:".toUpperCase());
 
         System.out.println("--------------------------------------------------");
         System.out.println("**************************************************");

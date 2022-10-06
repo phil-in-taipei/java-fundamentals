@@ -26,7 +26,7 @@ public class PrintInfoClass {
         printDividerLine();
         System.out.println(
                 BLACK_TEXT + WHITE_BACKGROUND +
-                        exitString
+                        exitString.toUpperCase()
                         + STANDARD_FORMAT
         );
     }

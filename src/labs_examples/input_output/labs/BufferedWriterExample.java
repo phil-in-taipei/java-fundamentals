@@ -36,7 +36,7 @@ public class BufferedWriterExample {
             e.printStackTrace();
         }
 
-        PrintInfoClass.printExerciseExit("The end!".toUpperCase());
+        PrintInfoClass.printExerciseExit("The end!");
         PrintInfoClass.printDividerLine();
     }
 

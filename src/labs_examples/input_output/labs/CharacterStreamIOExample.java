@@ -45,7 +45,7 @@ public class CharacterStreamIOExample {
             e2.printStackTrace();
         }
 
-        PrintInfoClass.printExerciseExit("The end!".toUpperCase());
+        PrintInfoClass.printExerciseExit("The end!");
         PrintInfoClass.printDividerLine();
 
 

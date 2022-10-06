@@ -34,8 +34,6 @@ class RelationalOperators {
 
         System.out.println("-----------------------------------------------");
 
-        // write your code below
-
     }
 
 }

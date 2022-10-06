@@ -33,9 +33,9 @@ public class Exercise_11 {
                 + FORMAT_RESET
         );
         System.out.println("----------------------------------------");
-        for (int i = 1; i < 11; i++) {
-            for (int j = 1; j < 11; j++) {
-                String calStr = Integer.toString(i * j);
+        for (int outerIndex = 1; outerIndex < 11; outerIndex++) {
+            for (int innerIndex = 1; innerIndex < 11; innerIndex++) {
+                String calStr = Integer.toString(outerIndex * innerIndex);
                 int numDigits = calStr.length();
                 switch(numDigits) {
                     case 1:

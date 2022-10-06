@@ -19,7 +19,7 @@ public class CustomExceptionExercise7 {
 
     public static void submitRating(int rating) throws RatingInvalidException {
         if (rating > 0 && rating <=5) {
-            System.out.println("The rating is:  " + rating);
+            System.out.println("The rating is:  ".toUpperCase() + rating);
         } else {
         // manually throw new custom exception
             throw new RatingInvalidException();
