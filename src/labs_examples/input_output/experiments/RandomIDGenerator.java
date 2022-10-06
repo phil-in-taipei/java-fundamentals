@@ -1,4 +1,4 @@
-package labs_examples.input_output.labs;
+package labs_examples.input_output.experiments;
 
 public class RandomIDGenerator {
     public static String generateIDNumber(int stringLength) {
