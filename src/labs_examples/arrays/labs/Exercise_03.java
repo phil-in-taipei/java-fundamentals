@@ -25,10 +25,10 @@ public class Exercise_03 {
         System.out.println("This is a matrix with multiples of 3, starting with 3:");
         System.out.println("------------------------------------------------------");
         int multOfThree = 1;
-        for (int i = 1; i < 6; i++) {
-            for (int j = 1; j < 6; j++) {
-                TwoDArray[i -1][j -1] = multOfThree * 3;
-                System.out.print(TwoDArray[i -1][j -1] + " |");
+        for (int outerIndex = 1; outerIndex < 6; outerIndex++) {
+            for (int innerIndex = 1; innerIndex < 6; innerIndex++) {
+                TwoDArray[outerIndex -1][innerIndex -1] = multOfThree * 3;
+                System.out.print(TwoDArray[outerIndex -1][innerIndex -1] + " |");
                 multOfThree++;
             }
 

@@ -1,4 +1,4 @@
-package labs_examples.conditions_loops.labs;
+package labs_examples.conditions_loops.experiments;
 import java.util.Random;
 
 public class LoopExperiment {
