@@ -1,6 +1,6 @@
 package labs_examples.multi_threading.experiments;
 
-public class MyFirstRunnable  implements Runnable {
+public class MyFirstRunnable implements Runnable { // an interface!!
     Thread thread;
 
     public MyFirstRunnable(String name) {
@@ -13,7 +13,7 @@ public class MyFirstRunnable  implements Runnable {
         System.out.println(thread.getName() + " starting.");
         try {
             for(int count=0; count<10; count++) {
-                Thread.sleep(400);
+                Thread.sleep(400); // just for the example to create a delay
                 System.out.println("In " + thread.getName() +
                         ", count is " + count);
             }

@@ -6,7 +6,7 @@ public class MySecondRunnable implements Runnable {
         System.out.println(Thread.currentThread().getName() + " starting.");
         try {
             for(int count=0; count<10; count++) {
-                Thread.sleep(400);
+                Thread.sleep(400); // just for example to create a delay
                 System.out.println("In " + Thread.currentThread().getName() + ", count is " + count);
             }
         }

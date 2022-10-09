@@ -15,7 +15,7 @@ public class MyFirstThread extends Thread {
         System.out.println(getName() + " starting.");
         try {
             for(int count=0; count < 5; count++) {
-                Thread.sleep(400);
+                Thread.sleep(400); // this is just to put an artificial delay in the example
                 System.out.println("In " + getName() +
                         ", count is " + count);
             }
