@@ -2,7 +2,7 @@ package labs_examples.multi_threading.labs;
 
 public class EvenNumbersRunnable implements Runnable {
 
-    int stopAtInt;
+    int stopAtInt; // limit to how many times it will go through the while loop
     NumbersPrintingSynchronizer numbersPrintingSynchronizer;
 
     public EvenNumbersRunnable(
@@ -12,10 +12,12 @@ public class EvenNumbersRunnable implements Runnable {
         this.numbersPrintingSynchronizer = numbersPrintingSynchronizer;
     }
     @Override
-    public void run() {
+    public void run() { // this will run in the printEvenNumber method of the Synchronizer class
+        // starts at the first possible even number
         int evenInt = 2;
         while (evenInt <= stopAtInt) {
             numbersPrintingSynchronizer.printEvenNumber(evenInt);
+            // changes variable to next even number (two more)
             evenInt = evenInt + 2;
         }
     }

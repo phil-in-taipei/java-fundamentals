@@ -3,7 +3,7 @@ package labs_examples.multi_threading.labs;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class SendMessageService implements Runnable {
-    private SendReceiveMessageSynchronizer sendReceiveMessageClass;
+    private final SendReceiveMessageSynchronizer sendReceiveMessageClass;
     String[] messages = SendMessagesStringArrayData.getMessages();
 
     public SendMessageService(SendReceiveMessageSynchronizer sendReceiveMessageClass) {
@@ -11,9 +11,7 @@ public class SendMessageService implements Runnable {
     }
 
     public void run() {
-        String messages[] = this.messages;
-
-        for (String message : messages) {
+        for (String message : this.messages) {
             if (message.equalsIgnoreCase("terminate")) {
                 System.out.println(message.toUpperCase() + ": messages finished");
             } else {
@@ -23,7 +21,7 @@ public class SendMessageService implements Runnable {
 
             // Thread.sleep() to mimic heavy server-side processing
             try {
-                Thread.sleep(ThreadLocalRandom.current().nextInt(1000, 5000));
+                Thread.sleep(ThreadLocalRandom.current().nextInt(1000, 4000));
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
                 System.out.println("Thread interrupted" + e.getMessage());

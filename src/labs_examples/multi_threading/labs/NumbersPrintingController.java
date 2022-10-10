@@ -3,16 +3,20 @@ package labs_examples.multi_threading.labs;
 public class NumbersPrintingController {
     public static void main(String[] args) {
 
-        PrintInfoClass.printExerciseIntro("Alternating Odd/Even Printing");
+        PrintInfoClass.printExerciseIntro("Odd/Even Printing");
         PrintInfoClass.printDividerLine();
 
-        NumbersPrintingSynchronizer printer = new NumbersPrintingSynchronizer();
+        NumbersPrintingSynchronizer numbersPrintingSynchronizer = new NumbersPrintingSynchronizer();
 
-        OddNumbersRunnable oddThread = new OddNumbersRunnable(100, printer);
+        OddNumbersRunnable oddThread = new OddNumbersRunnable(
+                100, numbersPrintingSynchronizer
+        );
         Thread threadOne = new Thread(oddThread, "Odd Thread");
         threadOne.start();
 
-        EvenNumbersRunnable evenThread = new EvenNumbersRunnable(100, printer);
+        EvenNumbersRunnable evenThread = new EvenNumbersRunnable(
+                100, numbersPrintingSynchronizer
+        );
         Thread threadTwo = new Thread(evenThread, "Even Thread");
         threadTwo.start();
 
