@@ -21,7 +21,9 @@ public class SwitchTwoElementsInArray<T> {
         PrintInfoClass.printDividerLine();
 
         String[] switchedArray = switchTwoElementsInArray.switchItems(arrayStringVariable, 0, 1);
-        System.out.println("Switched:");
+        System.out.println("Switched (index 0 and index 1):");
+        PrintInfoClass.printDividerLine();
+
         switchTwoElementsInArray.printArray(switchedArray);
 
         Integer[] intArrayVariable = {100, 300, 80, 90, 200};
@@ -34,7 +36,7 @@ public class SwitchTwoElementsInArray<T> {
         Integer[] switchedArray2 = switchTwoElementsInArray2.switchItems(intArrayVariable, 3, 1);
         PrintInfoClass.printDividerLine();
 
-        System.out.println("Switched:");
+        System.out.println("Switched (index 3 and index 1):");
         PrintInfoClass.printDividerLine();
         switchTwoElementsInArray2.printArray(switchedArray2);
 
