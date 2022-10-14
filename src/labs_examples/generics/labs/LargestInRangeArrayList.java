@@ -34,7 +34,7 @@ public class LargestInRangeArrayList {
         T max = array[index1];   // assume array[index1] is initially the largest
         for (int i = index1; i < index2; i++) {
             if (array[i].compareTo(max) > 0) {
-                max = array[i];   // y is the largest so far
+                max = array[i];   // item i of the array is the largest so far
             }
         }
 

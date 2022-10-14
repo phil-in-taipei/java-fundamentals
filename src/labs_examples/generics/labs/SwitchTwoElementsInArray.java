@@ -59,9 +59,10 @@ public class SwitchTwoElementsInArray<T> {
     }
 
     public void printArray(T[] array) {
-        for(T item : array){
-            System.out.println(item);
+        for(T element : array){
+            System.out.printf("%s ", element);
         }
+        System.out.print("\n");
     }
 
 }
