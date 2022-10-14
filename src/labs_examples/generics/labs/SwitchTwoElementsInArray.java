@@ -12,15 +12,15 @@ public class SwitchTwoElementsInArray<T> {
         System.out.println("First, switch 2 string array items");
         PrintInfoClass.printDividerLine();
 
-        String[] arrayStringVariable = {"Hello", "World"};
+        String[] stringArrayVariable = {"Hello", "World"};
         SwitchTwoElementsInArray<String> switchTwoElementsInArray = new SwitchTwoElementsInArray<>();
         System.out.println("Original Strings:");
         PrintInfoClass.printDividerLine();
 
-        switchTwoElementsInArray.printArray(arrayStringVariable);
+        switchTwoElementsInArray.printArray(stringArrayVariable);
         PrintInfoClass.printDividerLine();
 
-        String[] switchedArray = switchTwoElementsInArray.switchItems(arrayStringVariable, 0, 1);
+        String[] switchedArray = switchTwoElementsInArray.switchItems(stringArrayVariable, 0, 1);
         System.out.println("Switched (index 0 and index 1):");
         PrintInfoClass.printDividerLine();
 
