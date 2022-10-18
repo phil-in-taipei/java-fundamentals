@@ -8,6 +8,8 @@ public class BiPredicateExample {
         PrintInfoClass.printDividerLine();
         System.out.println("Takes in two integers and makes sure both are even");
 
+        PrintInfoClass.printDividerLine();
+
         BiPredicate<Integer, Integer> bothIntsEven = (n1, n2) -> (n1 % 2 == 0 && n2 % 2 ==0);
         System.out.println(
                 "Test 120 and 6: "
@@ -20,8 +22,12 @@ public class BiPredicateExample {
 
         PrintInfoClass.printDividerLine();
         System.out.println(
-                "Takes in String and integer and makes sure String is longer than 2 and int is greater than 4"
+                "Takes in String and integer and makes sure String is " +
+                        "\nlonger than 2 and int is greater than 4"
         );
+
+        PrintInfoClass.printDividerLine();
+
         BiPredicate<String, Integer> nameAndAgeMinValid = (name, age) -> (name.length() > 2 && age > 4);
         System.out.println(
                 "Test Joe and 20: "
@@ -35,6 +41,8 @@ public class BiPredicateExample {
         System.out.println(
                 "Takes in Strings and makes sure they are not the same"
         );
+
+        PrintInfoClass.printDividerLine();
 
         BiPredicate<String, String> givenSurnameDifferent = (givenName, surName) -> (!givenName.equals(surName));
 
