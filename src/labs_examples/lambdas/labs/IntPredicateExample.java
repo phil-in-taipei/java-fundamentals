@@ -9,15 +9,13 @@ public class IntPredicateExample {
         System.out.println("Creating 3 conditions to check if a year (int) is in this century or in the 1970s");
         PrintInfoClass.printDividerLine();
 
-        IntPredicate isThisCentury = (x) ->
-        {
+        IntPredicate isThisCentury = (x) -> {
             if (x >= 2000 & x < 2100)
                 return true;
             return false;
         };
 
-        IntPredicate is1970s = (x) ->
-        {
+        IntPredicate is1970s = (x) -> {
             if (x >= 1970 & x < 1980)
                 return true;
             return false;
