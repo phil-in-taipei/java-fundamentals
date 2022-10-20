@@ -1,5 +1,7 @@
 package labs_examples.lambdas.labs;
 
+import java.util.ArrayList;
+
 public class FunctionalInterfaceTwoParamsController {
     public static void main(String[] args) {
 
@@ -13,6 +15,11 @@ public class FunctionalInterfaceTwoParamsController {
                 " 6 times 2 is: "
                 + multiplyLambdaObj.anonymousTwoParamsReturnInt(6, 2)
         );
+
+        //ArrayList<Integer> nums = new ArrayList<Integer>();
+        //nums.add(20);
+        //nums.add(500);
+        //nums.forEach(n -> System.out.println(n));
 
         PrintInfoClass.printDividerLine();
 
