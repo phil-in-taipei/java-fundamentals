@@ -5,14 +5,52 @@
 *   Now that you have your air travel database all set up and populated, please demonstrate how to:
 *
 *       1.) Query all flights on a specific day
+        SELECT flights.idflights, flights.departure_time, flights.arrival_time
+        FROM air_travel.flights
+        WHERE flights.departure_time LIKE '2022-11-20%';
+
 *       2.) Query all flights between two specific cities on a specific day
+        SELECT flights.idflights, flights.departure_time, flights.arrival_time
+        FROM air_travel.flights
+        WHERE flights.departure_time LIKE '2022-11-20%'
+        AND flights.departure_location_id = 2
+        AND flights.arrival_location_id = 5;
+
 *       3.) Query all passengers on a specific flight between two specific cities today
+        SELECT p.idpassengers, p.given_name, p.surname
+        FROM air_travel.passengers p
+        JOIN air_travel.tickets t ON t.passenger_id = p.idpassengers
+        JOIN air_travel.flights f ON f.idflights = t.flight_id
+        WHERE f.departure_time LIKE '2022-11-20%'
+        AND f.departure_location_id = 2
+        AND f.arrival_location_id = 5;
+
 *       4.) Query the flight information for a specific passenger on a specific flight
+        SELECT p.idpassengers, p.given_name, p.surname
+        FROM air_travel.passengers p
+        JOIN air_travel.tickets t ON t.passenger_id = p.idpassengers
+        JOIN air_travel.flights f ON f.idflights = t.flight_id
+        WHERE f.idflights = 2;
+
 *       5.) Query the passenger information for a specific user on a specific flight yesterday
+        SELECT p.idpassengers, p.given_name, p.surname
+        FROM air_travel.passengers p
+        JOIN air_travel.tickets t ON t.passenger_id = p.idpassengers
+        JOIN air_travel.flights f ON f.idflights = t.flight_id
+        WHERE f.departure_time LIKE CONCAT(SUBSTRING(SUBDATE(NOW(),1), 1, 10), '%');
+
 *       6.) Query the number of flights between two specific cities this week, month, and year
+        SELECT p.idpassengers, p.given_name, p.surname
+        FROM air_travel.passengers p
+        JOIN air_travel.tickets t ON t.passenger_id = p.idpassengers
+        JOIN air_travel.flights f ON f.idflights = t.flight_id
+        WHERE f.departure_time LIKE CONCAT(SUBSTRING(SUBDATE(NOW(),1), 1, 10), '%');
+
 *       7.) Query the number of passengers that travelled between two specific cities today, this week, month and year
 *       8.) Insert records for new flights between airports
+
 *       9.) Insert records for new tickets and passengers on specific flights
+        INSERT INTO `air_travel`.`tickets` (`idtickets`, `flight_id`, `passenger_id`, `price`) VALUES ('3', '2', '3', '1000.00');
 *       10.) Update meal preference (or something similar) for a specific passenger on a specific flight
 *       Bonus: Have some fun - get creative - what else can you do? Flex those SQL muscles and show us what
 *           you've got! :)
