@@ -45,14 +45,27 @@
         JOIN air_travel.tickets t ON t.passenger_id = p.idpassengers
         JOIN air_travel.flights f ON f.idflights = t.flight_id
         WHERE f.departure_time LIKE CONCAT(SUBSTRING(SUBDATE(NOW(),1), 1, 10), '%');
+        #WHERE f.departure_time LIKE CONCAT(SUBSTRING(ADDDATE(NOW(),21), 1, 10), '%');
+        #WHERE CAST(f.departure_time AS DATE) = '2022-10-29';
+
 
 *       7.) Query the number of passengers that travelled between two specific cities today, this week, month and year
+        #SELECT count(p.idpassengers) as no_passengers_on_2022_11_20
+        SELECT count(p.idpassengers) as no_passengers_in_november
+        FROM air_travel.passengers p
+        JOIN air_travel.tickets t ON t.passenger_id = p.idpassengers
+        JOIN air_travel.flights f ON f.idflights = t.flight_id
+        WHERE f.departure_time LIKE '2022-11%';
+        #WHERE CAST(f.departure_time AS DATE) = '2022-11-20';
+
 *       8.) Insert records for new flights between airports
+        INSERT INTO `air_travel`.`flights` (`idflights`, `departure_time`, `arrival_time`, `departure_location_id`, `arrival_location_id`, `plane_id`, `airline_id`)
+        VALUES ('6', '2022-11-22 15:14:00', '2022-11-22 10:14:00', '2', '3', '4', '5');
 
 *       9.) Insert records for new tickets and passengers on specific flights
         INSERT INTO `air_travel`.`tickets` (`idtickets`, `flight_id`, `passenger_id`, `price`) VALUES ('3', '2', '3', '1000.00');
-*       10.) Update meal preference (or something similar) for a specific passenger on a specific flight
-*       Bonus: Have some fun - get creative - what else can you do? Flex those SQL muscles and show us what
-*           you've got! :)
+*
+        10.) Update ticket price on a specific flight
+        UPDATE `air_travel`.`tickets` SET `price` = '1500.00' WHERE (`idtickets` = '3');
 *
 */
