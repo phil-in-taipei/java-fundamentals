@@ -1,4 +1,4 @@
-package labs_examples.lambdas.labs;
+package labs_examples.datastructures.linkedlist.labs;
 
 public class PrintInfoClass {
 
