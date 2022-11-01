@@ -1,5 +1,7 @@
 package labs_examples.datastructures.linkedlist.labs;
 
+import labs_examples.datastructures.linkedlist.examples.Node;
+
 public class CustomLinkedListImplementation<T> {
 
     private LinkedListNode head;
@@ -14,17 +16,17 @@ public class CustomLinkedListImplementation<T> {
             }
         }
     }
+     public void prependHeadData(T data) {
+        LinkedListNode newNode = new LinkedListNode(data);
+        newNode.next = head;
+        head = newNode;
+    }
 
     public void changeHeadData(T data) {
         // if "head" is null, create new root node
         if (head == null) {
             head = new LinkedListNode(data);
         } else {
-            LinkedListNode iterator = head;
-            while (iterator.next != null) {
-
-                iterator = iterator.next;
-            }
             head.data = data;
         }
     }

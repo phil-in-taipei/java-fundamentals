@@ -15,5 +15,8 @@ public class CustomLinkedListController {
         customLinkedList.changeHeadData("8080");
         System.out.println(customLinkedList.size());
         System.out.println(customLinkedList.toURLString());
+
+        customLinkedList.prependHeadData("hahaha");
+        System.out.println(customLinkedList.toURLString());
     }
 }
