@@ -56,7 +56,7 @@ public class CustomLinkedListController {
 
         System.out.println(customLinkedList.toURLString());
         PrintInfoClass.printDividerLine();
-        
+
         customLinkedList.removeURLKey("ThirdItem");
         System.out.println(customLinkedList.toURLString());
         PrintInfoClass.printDividerLine();
