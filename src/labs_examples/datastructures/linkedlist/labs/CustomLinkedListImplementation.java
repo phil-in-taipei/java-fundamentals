@@ -58,6 +58,38 @@ public class CustomLinkedListImplementation<T> {
         }
     }
 
+    // removes list item following the item with the passed in data
+    public void removeURLKey(T data) {
+        LinkedListNode iterator = head;
+
+        //Check if data is in the head
+        //if so, remove (set head to iterator.next)
+        if (iterator.data == data) {
+            head = iterator.next;
+            return;
+        } else {
+            // iterate to find node with the data
+            while (iterator.next != null && iterator.data != data) {
+                iterator = iterator.next;
+            }
+            //data wasn't in any of the nodes
+            if (iterator.next == null) {
+                return;
+            }else {
+                //found the data; check position and delete
+                if (iterator.next.next == null){ //end of the list; remove last node
+                    System.out.println("Last item follows:" +  " " + data);
+                    iterator.next = null;
+                    return;
+                }else {
+                    //between head and last item; delete (connect with node following the deleted node)
+                    System.out.println("Not last item follows:" +  " " + data);
+                    iterator.next = iterator.next.next;
+                }
+            }
+        }
+    }
+
     public int size() {
         int count = 0;
         LinkedListNode iterator = head;
