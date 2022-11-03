@@ -10,9 +10,13 @@ public class CustomStackImplementation<T> {
         itemsInStack = 0;
     }
 
+    public boolean isEmpty() {
+        return itemsInStack == 0;
+    }
+
     public void doubleStackSize() {
         maxItemsInStack = maxItemsInStack * 2;
-        System.out.println("Maximum number of items in stack: " + maxItemsInStack);
+        //System.out.println("Double -- items in stack: " + maxItemsInStack);
         PrintInfoClass.printDividerLine();
 
         T[] newData = (T[]) new Object[maxItemsInStack];
@@ -20,11 +24,19 @@ public class CustomStackImplementation<T> {
             newData[i] = data[i];
         }
         data = newData;
+    }
+
+    public T[] getData() {
+        return data;
+    }
+
+    public int getMaxItemsInStack() {
+        return maxItemsInStack;
     }
 
     public void halveStackSize() {
         maxItemsInStack = maxItemsInStack / 2;
-        System.out.println("Maximum number of items in stack: " + maxItemsInStack);
+        //System.out.println("Halve -- items in stack: " + maxItemsInStack);
         PrintInfoClass.printDividerLine();
 
         T[] newData = (T[]) new Object[maxItemsInStack];
@@ -34,27 +46,44 @@ public class CustomStackImplementation<T> {
         data = newData;
     }
 
-    public void push(T item) {
-        // insert item into front of list
-        data[itemsInStack] = item;
-        itemsInStack++;
-        //System.out.println("The are this many items in the stack: " + itemsInStack);
-        //for (int i = 1; i < itemsInStack; i++) {
-        //    data[i] = data [i-1];
-        //}
-        //data[0] = item;
+    public T peekFirst() throws StackHighOrLowException{
+        if (isEmpty()) {
+            throw new StackHighOrLowException("The stack is currently empty");
+        }
+        return data[0];
     }
 
-    public T pop() throws Exception {
+    public T peekLast() throws StackHighOrLowException{
+        if (isEmpty()) {
+            throw new StackHighOrLowException("The stack is currently empty");
+        }
+        return data[itemsInStack - 1];
+    }
+
+    public void push(T item) throws StackHighOrLowException{
+        // insert item into front of list
+        if (itemsInStack == maxItemsInStack) {
+            throw new StackHighOrLowException("The stack is currently full");
+        }
+        data[itemsInStack] = item;
+        itemsInStack++;
+        if (itemsInStack == 8 & maxItemsInStack == 12) {
+            System.out.println("Doubling stack size...");
+            doubleStackSize();
+        }
+    }
+
+    public T pop() throws StackHighOrLowException {
         if (itemsInStack == 0) {
-            throw new Exception("Stack empty");
+            throw new StackHighOrLowException("The stack is currently empty");
         }
         T item = data[itemsInStack-1];
         data[itemsInStack-1] = null;
         itemsInStack--;
-
+        if (itemsInStack == 3 & maxItemsInStack == 24) {
+            halveStackSize();
+        }
         return item;
-
     }
 
     public void printItemsInStack() {

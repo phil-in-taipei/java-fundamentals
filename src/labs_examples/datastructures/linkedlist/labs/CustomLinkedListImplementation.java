@@ -66,13 +66,12 @@ public class CustomLinkedListImplementation<T> {
         //if so, remove (set head to iterator.next)
         if (iterator.data == data) {
             head = iterator.next;
-            return;
         } else {
             // iterate to find node with the data
             while (iterator.next != null && iterator.data != data) {
                 iterator = iterator.next;
             }
-            //data wasn't in any of the nodes
+            //data wasn't in any of the nodes (it's at the end)
             if (iterator.next == null) {
                 return;
             }else {
@@ -80,7 +79,7 @@ public class CustomLinkedListImplementation<T> {
                 if (iterator.next.next == null){ //end of the list; remove last node
                     System.out.println("Last item follows:" +  " " + data);
                     iterator.next = null;
-                    return;
+                    //return;
                 }else {
                     //between head and last item; delete (connect with node following the deleted node)
                     System.out.println("Not last item follows:" +  " " + data);
