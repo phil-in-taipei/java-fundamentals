@@ -80,7 +80,7 @@ public class BuiltInHashmapPractice {
         PrintInfoClass.printDividerLine();
 
         copyOfStudentAndStatus.clear();
-        System.out.println("The hashmap has been cleaed: " + copyOfStudentAndStatus.isEmpty());
+        System.out.println("The hashmap has been cleared: " + copyOfStudentAndStatus.isEmpty());
 
         PrintInfoClass.printExerciseExit("Built-In Hashmap practice");
     }
