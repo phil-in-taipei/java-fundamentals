@@ -2,6 +2,7 @@ package labs_examples.datastructures.queue.labs;
 
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.PriorityQueue;
 import java.util.Queue;
 
 public class QueuePractice {
@@ -12,7 +13,7 @@ public class QueuePractice {
         System.out.println("Add 5 items to the queue and print out with iterator:");
         PrintInfoClass.printDividerLine();
 
-        Queue<String> queueObj  = new LinkedList<>();
+        Queue<String> queueObj  = new PriorityQueue<>();
         queueObj.add("Item1");
         queueObj.add("Item2");
         queueObj.add("Item3");
