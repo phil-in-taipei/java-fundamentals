@@ -12,6 +12,10 @@ public class PrintInfoClass {
         System.out.println("-------------------------------------------------------------------------------------");
     }
 
+    public static void printItemDoesNotExist() {
+        System.out.println("The item does not exist");
+    }
+
     public static void printExerciseIntro(String exerciseName) {
         printDividerLine();
         System.out.println(
