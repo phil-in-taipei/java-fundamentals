@@ -13,23 +13,22 @@ public class ReverseDigitsPractice {
     public static void main(String[] args) {
 
         int originalNumber = 33232010;
-        //int lengthOfNumber = getLengthOfInteger(originalNumber);
-        //System.out.print("Length of original number: ");
-        //System.out.println((int)Math.pow(10, lengthOfNumber));
+        reversedNumber = 0;
 
-        //int reversedNumber = reverseDigitsRecursive(originalNumber);
-        //System.out.println("Recursive result: "  + reversedNumber);
-
-
-        originalNumber = 33232010;
-        reversedNumber = reverseDigitsIterative(originalNumber);
-        System.out.println("Iterative result: " + reversedNumber);
+        int resultOfNumbersReversed = reverseDigitsRecursive(originalNumber);
+        System.out.println("Recursive result: "  + resultOfNumbersReversed);
 
 
         originalNumber = 33232010;
         reversedNumber = 0;
-        reversedNumber = reverseDigitsRecursiveAlt(originalNumber);
-        System.out.println("Alternative recursive result: " + reversedNumber);
+        resultOfNumbersReversed = reverseDigitsIterative(originalNumber);
+        System.out.println("Iterative result: " + resultOfNumbersReversed);
+
+
+        originalNumber = 33232010;
+        reversedNumber = 0;
+        resultOfNumbersReversed = reverseDigitsRecursiveAlt(originalNumber);
+        System.out.println("Alternative recursive result: " + resultOfNumbersReversed);
     }
 
     public static int multiplyNumberByTenAndAddToNew(int lastDigit) {
